@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springboot4_mybatis.mapper.EmployeeMapper">
+    <!--#  public Employee getEmpById(Integer id);-->
+
+    <!--# public void insertEmp(Employee employee);-->
+    <select id="getEmpById" resultType="springboot4_mybatis.bean.Employee">
+        SELECT * FROM employee WHERE id=#{id}
+    </select>
+
+    <insert id="insertEmp">
+        INSERT INTO employee(lastName,email,gender,d_id) VALUES (#{lastName},#{email},#{gender},#{dId})
+    </insert>
+</mapper>
+
+
+<!--<mapper namespace="springboot4_mybatis.mapper.MoniMapper">-->
+
+    <!--<select id="selectAll" resultType="java.util.HashMap">-->
+    <!--select * from MONI limit 10;-->
+  <!--</select>-->
+
+    <!--<select id="selectByPlaceName" resultType="java.util.HashMap">-->
+    <!--select * from MONI where placeName = #{placeName} limit 10;-->
+  <!--</select>-->
+
+    <!--<select id="selectSheet" resultType="java.util.HashMap">-->
+    <!--select placeName,sensorTpye,realValue,flagStatus from MONI where sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+    <!--<select id="selectBool" resultType="java.util.HashMap">-->
+   <!--select sensortpye,round(avg(realvalue),2)  from MONI-->
+    <!--where  sendtime between #{startTime} and #{endTime}-->
+    <!--group by sensortpye-->
+  <!--</select>-->
+
+    <!--<select id="selectLineChart1" resultType="java.util.HashMap">-->
+   <!--select sendtime,round(avg(realvalue),2)  from MONI-->
+   <!--where sensortpye =1 and sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+    <!--<select id="selectLineChart2" resultType="java.util.HashMap">-->
+   <!--select sendtime,realvalue  from moni_avg where sensortype =2 and sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+    <!--<select id="selectLineChart4" resultType="java.util.HashMap">-->
+   <!--select sendtime,realvalue  from moni_avg where sensortype =4 and sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+    <!--<select id="selectLineChart5" resultType="java.util.HashMap">-->
+  <!--select sendtime,realvalue  from moni_avg where sensortype =5 and sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+    <!--<select id="selectLineChart10" resultType="java.util.HashMap">-->
+    <!--select sendtime,realvalue  from moni_avg where sensortype =99 and sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+    <!--<select id="selectTwoDimension" resultType="java.util.HashMap">-->
+    <!--select placeName,realValue,flagStatus from MONI where sendtime between #{startTime} and #{endTime};-->
+  <!--</select>-->
+
+
+<!--</mapper>-->
