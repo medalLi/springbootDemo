@@ -6,9 +6,6 @@
     <groupId>springboot4_mybatis</groupId>
     <artifactId>springboot4</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>layui_demo</module>
-    </modules>
     <packaging>pom</packaging>
 
     <name>springboot4</name>
