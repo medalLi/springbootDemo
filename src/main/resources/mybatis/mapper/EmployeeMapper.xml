@@ -10,7 +10,6 @@
     <select id="getEmpById" resultType="springboot4_mybatis.bean.Employee">
         SELECT * FROM employee WHERE id=#{id}
     </select>
-
     <insert id="insertEmp">
         INSERT INTO employee(lastName,email,gender,d_id) VALUES (#{lastName},#{email},#{gender},#{dId})
     </insert>

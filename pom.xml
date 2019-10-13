@@ -6,7 +6,10 @@
     <groupId>springboot4_mybatis</groupId>
     <artifactId>springboot4</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>layui_demo</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>springboot4</name>
     <description>Demo project for Spring Boot</description>
