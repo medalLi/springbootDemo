@@ -9,6 +9,8 @@ import springboot4_mybatis.bean.Employee;
 import springboot4_mybatis.mapper.DepartmentMapper;
 import springboot4_mybatis.mapper.EmployeeMapper;
 
+import java.util.HashMap;
+
 
 @RestController
 public class DeptController {
@@ -30,8 +32,12 @@ public class DeptController {
     }
 
     @GetMapping("/emp/{id}")
-    public Employee getEmp(@PathVariable("id") int id){
-        return employeeMapper.getEmpById(id);
+    public HashMap<String,HashMap<String,Employee>> getEmp(@PathVariable("id") Integer id){
+        HashMap<String,Employee> hm = new HashMap<>();
+        HashMap<String,HashMap<String,Employee>> bhm = new HashMap<>();
+        hm.put("item",employeeMapper.getEmpById(id));
+        bhm.put("rows",hm);
+        return bhm;
     }
 
 
