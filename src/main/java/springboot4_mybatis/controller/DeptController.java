@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import springboot4_mybatis.bean.Department;
+import springboot4_mybatis.bean.EchartsDeomData;
 import springboot4_mybatis.bean.Employee;
 import springboot4_mybatis.mapper.DepartmentMapper;
+import springboot4_mybatis.mapper.EchartsDemoDataMapper;
 import springboot4_mybatis.mapper.EmployeeMapper;
 
 import java.util.HashMap;
@@ -18,6 +20,8 @@ public class DeptController {
     DepartmentMapper departmentMapper;
    @Autowired
    EmployeeMapper employeeMapper;
+   @Autowired
+    EchartsDemoDataMapper echartsDemoDataMapper;
 
 
     @GetMapping("/dept/{id}")
@@ -25,6 +29,11 @@ public class DeptController {
         return departmentMapper.getDeptById(id);
     }
 
+    @GetMapping("/data")
+    public EchartsDeomData getDepartment1(){
+        EchartsDeomData edd = echartsDemoDataMapper.getdata();
+        return edd;
+    }
     @GetMapping("/dept")
     public Department insertDept(Department department){
         departmentMapper.insertDept(department);
@@ -41,7 +50,7 @@ public class DeptController {
     }
 
     @GetMapping("/empp/{id}")
-    public String getEmp2(@PathVariable("id") Integer id){
+    public Object getEmp2(@PathVariable("id") Integer id){
         String line = "{\n" +
                 "  \"categories\":[\"衬衫\",\"羊毛衫\",\"雪纺衫\",\"裤子\",\"高跟鞋\",\"袜子\"],\n" +
                 "  \"data\":[5,20,36,15,20,30]\n" +

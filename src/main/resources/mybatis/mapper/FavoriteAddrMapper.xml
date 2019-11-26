@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ly.mp.iov.colladdr.mapper.FavoriteAddrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ly.mp.iov.collAddr.entities.FavoriteAddr">
+        <id column="id" property="id" />
+        <result column="USER_ID_CARD" property="userIdCard" />
+        <result column="custom_name" property="customName" />
+        <result column="name" property="name" />
+        <result column="poiid" property="poiid" />
+        <result column="lng" property="lng" />
+        <result column="lat" property="lat" />
+        <result column="address" property="address" />
+        <result column="items_id" property="itemsId" />
+        <result column="items_act" property="itemsAct" />
+        <result column="items_ts" property="itemsTs" />
+        <result column="items_ver" property="itemsVer" />
+        <result column="CREATED_DATE" property="createdDate" />
+        <result column="MODIFIER" property="modifier" />
+        <result column="LAST_UPDATED_DATE" property="lastUpdatedDate" />
+        <result column="IS_ENABLE" property="isEnable" />
+        <result column="IS_SYNC" property="isSync" />
+        <result column="items_diu" property="itemsDiu" />
+        <result column="sync_time" property="syncTime" />
+        <result column="data_re_name" property="dataReName" />
+        <result column="data_top_time" property="dataTopTime" />
+        <result column="data_item_id" property="dataItemId" />
+        <result column="data_create_time" property="dataCreateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, USER_ID_CARD, custom_name, name, poiid, lng, lat, address, items_id, items_act, items_ts, items_ver, CREATED_DATE, MODIFIER, LAST_UPDATED_DATE, IS_ENABLE, IS_SYNC, items_diu, sync_time, data_re_name, data_top_time, data_item_id, data_create_time
+    </sql>
+    <select id="getAnAddr" resultMap="BaseResultMap">
+    	select * from t_iov_favorite_addr${suffix} where id = ${id};
+    </select>
+
+</mapper>
