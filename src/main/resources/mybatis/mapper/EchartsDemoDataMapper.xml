@@ -5,9 +5,10 @@
 
 <mapper namespace="springboot4_mybatis.mapper.EchartsDemoDataMapper">
     <!--#  public Employee getEmpById(Integer id);-->
+
     <!--# public void insertEmp(Employee employee);-->
-    <select id="getdata" resultType="springboot4_mybatis.bean.EchartsDeomData">
-        SELECT * FROM echartsdomedata ;
+    <select id="getdata1" resultType="springboot4_mybatis.bean.EchartsDemoData">
+        SELECT * FROM echartsdomedata;
     </select>
 </mapper>
 

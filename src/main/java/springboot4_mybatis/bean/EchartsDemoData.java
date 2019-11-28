@@ -1,13 +1,8 @@
 package springboot4_mybatis.bean;
 
-public class EchartsDeomData {
+public class EchartsDemoData {
     private String categories;
     private String data;
-
-    public EchartsDeomData(String categories, String data) {
-        this.categories = categories;
-        this.data = data;
-    }
 
     public String getCategories() {
         return categories;

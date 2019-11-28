@@ -1,16 +1,21 @@
 package springboot4_mybatis.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import springboot4_mybatis.bean.Department;
-import springboot4_mybatis.bean.EchartsDeomData;
+import springboot4_mybatis.bean.EchartsDemoData;
 import springboot4_mybatis.bean.Employee;
 import springboot4_mybatis.mapper.DepartmentMapper;
 import springboot4_mybatis.mapper.EchartsDemoDataMapper;
+import springboot4_mybatis.mapper.EchartsDemoDataMapper_V2;
 import springboot4_mybatis.mapper.EmployeeMapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 
@@ -18,10 +23,13 @@ import java.util.HashMap;
 public class DeptController {
 //    @Autowired
     DepartmentMapper departmentMapper;
-   @Autowired
-   EmployeeMapper employeeMapper;
-   @Autowired
+    @Autowired
+    EmployeeMapper employeeMapper;
+    @Autowired
     EchartsDemoDataMapper echartsDemoDataMapper;
+
+    @Autowired
+    JdbcTemplate jdbcTemplate ;
 
 
     @GetMapping("/dept/{id}")
@@ -30,8 +38,8 @@ public class DeptController {
     }
 
     @GetMapping("/data")
-    public EchartsDeomData getDepartment1(){
-        EchartsDeomData edd = echartsDemoDataMapper.getdata();
+    public EchartsDemoData getDepartment1(){
+        EchartsDemoData edd = echartsDemoDataMapper.getdata();
         return edd;
     }
     @GetMapping("/dept")
@@ -48,13 +56,20 @@ public class DeptController {
         bhm.put("rows",hm);
         return bhm;
     }
+    int count1 = 1;
+    int count2 = 1;
+    int count3 = 1;
 
     @GetMapping("/empp/{id}")
     public Object getEmp2(@PathVariable("id") Integer id){
+        //jdbcTemplate.
+        //jdbcTemplate.execute("SELECT * FROM echartsdomedata");
         String line = "{\n" +
                 "  \"categories\":[\"衬衫\",\"羊毛衫\",\"雪纺衫\",\"裤子\",\"高跟鞋\",\"袜子\"],\n" +
-                "  \"data\":[5,20,36,15,20,30]\n" +
+                "  \"data\":["+(5+count1)+",20,36,"+(15+count2)+",20,30]\n" +
                 "}\n";
+        count1 ++;
+        count2 ++;
         return line;
     }
 
